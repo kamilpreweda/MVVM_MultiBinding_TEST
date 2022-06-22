@@ -25,7 +25,7 @@ namespace MVVM_MultiBinding_TEST
 
         public void Execute(object? parameter)
         {
-            throw new NotImplementedException();
+            _executeMethod(parameter);
         }
 
         Action<object> _executeMethod;
