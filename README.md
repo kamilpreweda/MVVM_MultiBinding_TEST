@@ -1,0 +1,1 @@
+# MVVM_MultiBinding_TEST
