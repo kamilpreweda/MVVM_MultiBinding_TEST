@@ -20,6 +20,27 @@ namespace MVVM_MultiBinding_TEST
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyname));
             }
         }
+
+        private int _number1;
+        public int Number1
+        {
+            get { return _number1; }
+            set { _number1 = value; OnPropertyChanged("Number1"); }
+        }
+
+        private int _number2;
+        public int Number2
+        {
+            get { return _number2; }
+            set { _number2 = value; OnPropertyChanged("Number2"); }
+        }
+
+        private int numberSum;
+        public int NumberSum
+        {
+            get { return numberSum; }
+            set { numberSum = value; OnPropertyChanged("NumberSum"); }
+        }
     }
 
 }
