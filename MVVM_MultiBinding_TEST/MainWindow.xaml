@@ -38,7 +38,7 @@
         </Button>
 
         <Label Grid.Row="3" Grid.Column="0" Content="Sum : " HorizontalContentAlignment="Right"></Label>
-        <TextBox Grid.Row="3" Grid.Column="1" Margin="5" Text="{Binding Path=NumberSum}"></TextBox>
+        <TextBox Grid.Row="3" Grid.Column="1" Margin="5" Text="{Binding Path=NumberSum, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"></TextBox>
 
     </Grid>
 </Window>
