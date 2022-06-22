@@ -57,7 +57,10 @@ namespace MVVM_MultiBinding_TEST
 
         private void execute(object parameter)
         {
-
+            var values = (object[])parameter;
+            int num1 = Convert.ToInt32((string)values[0]);
+            int num2 = Convert.ToInt32((string)values[1]);
+            NumberSum = num1 + num2;
         }
     }
 
