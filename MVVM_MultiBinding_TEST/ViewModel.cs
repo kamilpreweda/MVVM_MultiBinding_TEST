@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using MVVM_MultiBinding_TEST;
 
 namespace MVVM_MultiBinding_TEST
 {
@@ -40,6 +41,23 @@ namespace MVVM_MultiBinding_TEST
         {
             get { return numberSum; }
             set { numberSum = value; OnPropertyChanged("NumberSum"); }
+        }
+
+        public ViewModel()
+        {
+            MyCommand = new RelayCommand(execute, canexecute);
+        }
+
+        private bool canexecute(object parameter)
+        {
+            if (Number1 != null || Number2 != null){
+                return true;
+            } else { return false; }
+        }
+
+        private void execute(object parameter)
+        {
+
         }
     }
 

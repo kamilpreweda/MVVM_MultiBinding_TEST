@@ -12,7 +12,13 @@ namespace MVVM_MultiBinding_TEST
     {
         Action<object> _executeMethod;
         Func<object, bool> _canExecuteMethod;
-        
+
+        public RelayCommand(Action<object> executeMethod, Func<object, bool> canExecuteMethod)
+        {
+            _executeMethod = executeMethod;
+            _canExecuteMethod = canExecuteMethod;
+        }
+
         public event EventHandler? CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
@@ -35,12 +41,7 @@ namespace MVVM_MultiBinding_TEST
         {
             _executeMethod(parameter);
         }
-              
-
-        public RelayCommand(Action<object> executeMethod, Func<object, bool> canExecuteMethod)
-        {
-            _executeMethod = executeMethod;
-            _canExecuteMethod = canExecuteMethod;
-        }
+            
+               
     }
 }
