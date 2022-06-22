@@ -23,7 +23,7 @@
         
         <Label Grid.Row="1" Grid.Column="0" Content="Number - 2 : " HorizontalContentAlignment="Right"></Label>
         <TextBox Grid.Row="1" Grid.Column="1" Name="txtNumb2" Margin="5" Text="{Binding Path=Number2}"></TextBox>
-        <Button Grid.Row="2" Grid.Column="1" Margin="5" Content="SUM"></Button>
+        <Button Grid.Row="2" Grid.Column="1" Margin="5" Content="SUM" Command="{Binding Path=MyCommand}"></Button>
 
         <Label Grid.Row="3" Grid.Column="0" Content="Sum : " HorizontalContentAlignment="Right"></Label>
         <TextBox Grid.Row="3" Grid.Column="1" Margin="5" Text="{Binding Path=NumberSum}"></TextBox>
