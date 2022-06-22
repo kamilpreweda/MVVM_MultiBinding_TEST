@@ -13,7 +13,14 @@ namespace MVVM_MultiBinding_TEST
 
         public bool CanExecute(object? parameter)
         {
-            throw new NotImplementedException();
+            if (_canExecuteMethod != null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public void Execute(object? parameter)
