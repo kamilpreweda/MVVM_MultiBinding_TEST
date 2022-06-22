@@ -8,7 +8,11 @@ using System.Windows.Input;
 namespace MVVM_MultiBinding_TEST
 {
     public class RelayCommand : ICommand
+
     {
+        Action<object> _executeMethod;
+        Func<object, bool> _canExecuteMethod;
+        
         public event EventHandler? CanExecuteChanged
         {
             add { CommandManager.RequerySuggested += value; }
@@ -31,9 +35,7 @@ namespace MVVM_MultiBinding_TEST
         {
             _executeMethod(parameter);
         }
-
-        Action<object> _executeMethod;
-        Func<object, bool> _canExecuteMethod;
+              
 
         public RelayCommand(Action<object> executeMethod, Func<object, bool> canExecuteMethod)
         {
