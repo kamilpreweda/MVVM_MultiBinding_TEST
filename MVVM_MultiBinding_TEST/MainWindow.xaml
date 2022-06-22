@@ -3,9 +3,14 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:MVVM_MultiBinding_TEST"
+        xmlns:viewmodel="clr-namespace:MVVM_MultiBinding_TEST"
+        xmlns:converter="clr-namespace:MVVM_MultiBinding_TEST"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <viewmodel:ViewModel x:Key="vm"></viewmodel:ViewModel>
+        <converter:MyValueConverter x:Key="cv"></converter:MyValueConverter>
+    </Window.Resources>
     <Grid Width="400" Height="200">
         <Grid.RowDefinitions>
             <RowDefinition/>
@@ -23,7 +28,14 @@
         
         <Label Grid.Row="1" Grid.Column="0" Content="Number - 2 : " HorizontalContentAlignment="Right"></Label>
         <TextBox Grid.Row="1" Grid.Column="1" Name="txtNumb2" Margin="5" Text="{Binding Path=Number2}"></TextBox>
-        <Button Grid.Row="2" Grid.Column="1" Margin="5" Content="SUM" Command="{Binding Path=MyCommand}"></Button>
+        <Button Grid.Row="2" Grid.Column="1" Margin="5" Content="SUM" Command="{Binding Path=MyCommand}">
+            <Button.CommandParameter>
+                <MultiBinding Converter="{StaticResource cv}">
+                    <Binding ElementName="txtNumb1" Path="Text"/>
+                    <Binding ElementName="txtNumb2" Path="Text"/>
+                </MultiBinding>
+            </Button.CommandParameter>
+        </Button>
 
         <Label Grid.Row="3" Grid.Column="0" Content="Sum : " HorizontalContentAlignment="Right"></Label>
         <TextBox Grid.Row="3" Grid.Column="1" Margin="5" Text="{Binding Path=NumberSum}"></TextBox>
