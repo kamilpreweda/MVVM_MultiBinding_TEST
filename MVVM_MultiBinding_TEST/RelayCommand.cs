@@ -20,5 +20,14 @@ namespace MVVM_MultiBinding_TEST
         {
             throw new NotImplementedException();
         }
+
+        Action<object> _executeMethod;
+        Func<object, bool> _canExecuteMethod;
+
+        public RelayCommand(Action<object> executeMethod, Func<object, bool> canExecuteMethod)
+        {
+            _executeMethod = executeMethod;
+            _canExecuteMethod = canExecuteMethod;
+        }
     }
 }
